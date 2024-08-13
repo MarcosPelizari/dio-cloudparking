@@ -1,15 +1,14 @@
 package one.digitalinnovation.parking.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "parking")
 public class Parking {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,9 +18,9 @@ public class Parking {
         private String state;
         private String model;
         private String color;
-        @JsonFormat(pattern = "dd/MM/yyyy")
+        @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
         private LocalDateTime entryDate;
-        @JsonFormat(pattern = "dd/MM/yyyy")
+        @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
         private LocalDateTime exitDate;
         private Double bill;
 
